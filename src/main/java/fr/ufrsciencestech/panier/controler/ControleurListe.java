@@ -28,10 +28,6 @@ public class ControleurListe extends Controleur {
                 p.update(-1);
                 break;
         }
-        if(((Component)e.getSource()).getName().equals("Plus")) 
-            p.update(1);
-        else
-            p.update(-1);
     }
     public void setPanier(Panier p){
         this.p = p;

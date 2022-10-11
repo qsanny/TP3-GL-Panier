@@ -6,12 +6,9 @@ package fr.ufrsciencestech.panier.view;
 
 import fr.ufrsciencestech.panier.controler.Controleur;
 import fr.ufrsciencestech.panier.model.Fruit;
-import fr.ufrsciencestech.panier.model.Orange;
 
 import java.awt.BorderLayout;
-import java.util.ArrayList;
 import java.util.Observable;
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -35,8 +32,8 @@ public class VueGraphiqueListe extends JFrame implements VueG {
         inc = new JButton("+");
         dec = new JButton("-");
         
-        String fruits[] = { "Orange", "Banane"};
-        combobox = new JComboBox(fruits);
+        String typesFruitDisponible[] = { "Orange"};// TODO: il faudra le rendre dynamique
+        combobox = new JComboBox(typesFruitDisponible);
         
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(inc, BorderLayout.WEST);
