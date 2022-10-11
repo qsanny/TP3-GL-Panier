@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- Déclaration des références -->
     <bean id="Controleur" class="fr.ufrsciencestech.panier.controler.Controleur"></bean>
-    <bean id="Vue" class="fr.ufrsciencestech.panier.view.VueGSwing"></bean>
+    <bean id="Vue" class="fr.ufrsciencestech.panier.view.VueGraphiqueListe"></bean>
     <!-- Utilisation des références -->
     <bean id="MVC" class="fr.ufrsciencestech.panier.TestMVC">
         <property name="vueg" ref="Vue"/>
