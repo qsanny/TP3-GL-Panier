@@ -7,6 +7,7 @@ package fr.ufrsciencestech.panier.view;
 import fr.ufrsciencestech.panier.controler.Controleur;
 import fr.ufrsciencestech.panier.model.Fruit;
 import fr.ufrsciencestech.panier.model.Orange;
+
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -16,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
@@ -24,14 +26,14 @@ import javax.swing.JPanel;
 public class VueGraphiqueListe extends JFrame implements VueG {
     private JButton inc;
     private JButton dec;
-    private JLabel affiche;
     private JComboBox combobox; 
+    private JTextArea affiche;
+    private JComboBox<Fruit> listeFruits;
     
     public VueGraphiqueListe(){
         super ("CompteurSwing");
         inc = new JButton("+");
         dec = new JButton("-");
-        affiche = new JLabel("0", JLabel.CENTER);
         
         String fruits[] = { "Orange", "Banane"};
         combobox = new JComboBox(fruits);
@@ -42,6 +44,7 @@ public class VueGraphiqueListe extends JFrame implements VueG {
 
         
         add(panel, BorderLayout.NORTH);
+        affiche = new JTextArea(1, JLabel.CENTER);
         add(dec, BorderLayout.SOUTH);
         add(affiche, BorderLayout.CENTER);
 
@@ -95,14 +98,26 @@ public class VueGraphiqueListe extends JFrame implements VueG {
     /**
      * @return the affiche
      */
-    public JLabel getAffiche() {
+    public JTextArea getAffiche() {
         return affiche;
     }
 
     /**
      * @param affiche the affiche to set
      */
-    public void setAffiche(JLabel affiche) {
+    public void setAffiche(JTextArea affiche) {
         this.affiche = affiche;
+    }
+
+    public JComboBox<Fruit> getListeFruits() {
+        return listeFruits;
+    }
+
+    public void setListeFruits(JComboBox<Fruit> listeFruits) {
+        this.listeFruits = listeFruits;
+    }
+
+    public void ajouteFruit(Fruit f) {
+        listeFruits.addItem(f);
     }
 }
