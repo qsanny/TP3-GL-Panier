@@ -5,11 +5,17 @@
 package fr.ufrsciencestech.panier.view;
 
 import fr.ufrsciencestech.panier.controler.Controleur;
+import fr.ufrsciencestech.panier.model.Fruit;
+import fr.ufrsciencestech.panier.model.Orange;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import java.util.Observable;
+import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,15 +25,26 @@ public class VueGraphiqueListe extends JFrame implements VueG {
     private JButton inc;
     private JButton dec;
     private JLabel affiche;
+    private JComboBox combobox; 
     
     public VueGraphiqueListe(){
         super ("CompteurSwing");
         inc = new JButton("+");
         dec = new JButton("-");
         affiche = new JLabel("0", JLabel.CENTER);
-        add(inc, BorderLayout.NORTH);
+        
+        String fruits[] = { "Orange", "Banane"};
+        combobox = new JComboBox(fruits);
+        
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(inc, BorderLayout.WEST);
+        panel.add(combobox, BorderLayout.EAST);
+
+        
+        add(panel, BorderLayout.NORTH);
         add(dec, BorderLayout.SOUTH);
         add(affiche, BorderLayout.CENTER);
+
         
         inc.setName("Plus");
         dec.setName("Moins");
@@ -43,8 +60,8 @@ public class VueGraphiqueListe extends JFrame implements VueG {
     }
     
     @Override
-    public void update(Observable m, Object compte){     //This method is called whenever the observed object is changed
-        getAffiche().setText(((Integer) compte).toString());
+    public void update(Observable m, Object fruitsInfo){     //This method is called whenever the observed object is changed
+        getAffiche().setText(((String) fruitsInfo));
     }
 
     /**
