@@ -5,21 +5,26 @@
  */
 package fr.ufrsciencestech.panier.controler;
 
-import fr.ufrsciencestech.panier.view.*;
 import fr.ufrsciencestech.panier.model.Panier;
+import fr.ufrsciencestech.panier.view.VueG;
+
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author celine
  */
-public class Controleur implements ActionListener {
+public class ControleurSimple extends Controleur {
     private Panier p;
-
+    
     @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public void actionPerformed(ActionEvent e){   //Invoked when an action occurs
+        if(((Component)e.getSource()).getName().equals("Plus")) 
+            p.update(1);
+        else
+            p.update(-1);
     }
     public void setPanier(Panier p){
         this.p = p;
