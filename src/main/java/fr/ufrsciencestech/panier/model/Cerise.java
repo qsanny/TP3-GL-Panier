@@ -7,8 +7,8 @@ package fr.ufrsciencestech.panier.model;
 public class Cerise extends FruitSimple{
   public Cerise()
   {
-    super();
-
+    this.prix = 0.25;  //prix en euros
+    this.Origine="Allemagne";
   }
 
   public Cerise(double prix, String origine)

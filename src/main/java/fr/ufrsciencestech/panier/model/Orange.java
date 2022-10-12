@@ -5,13 +5,11 @@ package fr.ufrsciencestech.panier.model;
  * @author roudet
  */
 public class Orange extends FruitSimple {
-    private double prix;
-    private String origine;
 	
     public Orange() 
     {
         this.prix = 0.5;  //prix en euros
-        this.origine="Espagne";
+        this.Origine="Espagne";
     }
     
     public Orange(double prix, String origine) 
@@ -22,9 +20,9 @@ public class Orange extends FruitSimple {
 	    this.prix = prix;
 
 	if(origine.equals(""))
-            this.origine = "Espagne";  //Espagne par défaut
+            this.Origine = "Espagne";  //Espagne par défaut
 	else
-            this.origine = origine;   
+            this.Origine = origine;
     }
 
     public double getPrix(){
@@ -36,16 +34,16 @@ public class Orange extends FruitSimple {
     }
 
     public String getOrigine(){
-	return origine;
+	return Origine;
     }
  
     public void setOrigine(String origine){
-	this.origine=origine;
+	this.Origine=origine;
     }
 
     @Override
     public String toString(){
-        return "Orange de " + origine + " a " + prix + " euros";
+        return "Orange de " + Origine + " a " + prix + " euros";
     }
 
     public String getName() {
@@ -56,7 +54,7 @@ public class Orange extends FruitSimple {
     public boolean equals(Object o){  //predicat pour tester si 2 oranges sont equivalentes
         if(o != null && getClass() == o.getClass()){
             Orange or = (Orange) o;
-            return (prix == or.prix && origine.equals(or.origine));
+            return (prix == or.prix && Origine.equals(or.Origine));
         }
         return false;
     }

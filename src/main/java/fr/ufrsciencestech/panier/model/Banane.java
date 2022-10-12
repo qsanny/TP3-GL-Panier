@@ -8,8 +8,8 @@ public class Banane extends FruitSimple{
 
     public Banane()
     {
-      super();
-
+        this.prix = 0.75;  //prix en euros
+        this.Origine="Italie";
     }
 
     public Banane(double prix, String origine)
