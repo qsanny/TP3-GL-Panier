@@ -48,6 +48,10 @@ public class Orange extends FruitSimple {
         return "Orange de " + origine + " a " + prix + " euros";
     }
 
+    public String getName() {
+        return "Orange";
+    }
+
     @Override
     public boolean equals(Object o){  //predicat pour tester si 2 oranges sont equivalentes
         if(o != null && getClass() == o.getClass()){

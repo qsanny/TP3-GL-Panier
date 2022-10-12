@@ -32,4 +32,8 @@ return this.prix;
     public String toString(){
         return "Fruit Simple d'origine " + Origine + " a " + prix + " euros";
     }    //affichage d'un fruit
+
+    public String getName() {
+        return "Fruit Simple";
+    }
 }

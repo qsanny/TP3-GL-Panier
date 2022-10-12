@@ -37,7 +37,9 @@ public class Cerise extends FruitSimple{
   public String toString(){
       return "Cérise " + Origine + " a " + prix + " euros";
   }
-
+  public String getName() {
+    return "Cerise";
+  }
 
   public static void main (String[] args){
       //Ecrire ici vos tests

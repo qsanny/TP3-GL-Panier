@@ -57,11 +57,28 @@ public class Panier extends Observable {
 
     @Override
     public String toString(){  //affichage de ce qui est contenu dans le panier : liste des fruits presents
-        String str ="";
-        for (FruitSimple fruit : fruits) {
-            str += fruit.toString() + "\n";
+        String resultat ="";
+        resultat = "Panier de " + getTaillePanier() + " fruits ";
+        double prixTotal = 0;
+        for (FruitSimple f : getFruits()) {
+            prixTotal += f.getPrix();
         }
-        return str;
+        resultat += ": "+ prixTotal + " euros\n";
+        String[] typesFruitDisponible = {"Orange", "Cerise", "Banane", "Macedoine", "Jus"};// TODO: Enlever Macedoine et Jus si pas le temps
+        for (String typeFruit : typesFruitDisponible) {
+
+        }
+        Orange o  = new Orange();
+        resultat += getTaillePanier() + " Orange a " + o.getPrix() + " euros\n";
+        // for (int i = 0; i < this.getFruits().size(); i++)
+        // {
+        //     Fruit f = this.getFruit(i);
+        //     if(f != null)
+        //     {
+        //         resultat += f.toString() + "\n";
+        //     }
+        // }
+        return resultat;
     }
 
     //groupe 2
