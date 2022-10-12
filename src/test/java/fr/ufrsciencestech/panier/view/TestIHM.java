@@ -1,6 +1,7 @@
 package fr.ufrsciencestech.panier.view;
 
 import fr.ufrsciencestech.panier.model.Fruit;
+import fr.ufrsciencestech.panier.model.Orange;
 import fr.ufrsciencestech.panier.view.VueGraphiqueListe;
 
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.mockito.Mockito.*;
@@ -24,9 +26,9 @@ public class TestIHM {
 
     @Test
     public void testGetAndSetAffiche() {
-        //JLabel test = new JLabel("Test");
-        //view.setAffiche(test);
-        //assertTrue(view.getAffiche().equals(test));
+        JTextArea test = new JTextArea("Test");
+        view.setAffiche(test);
+        assertTrue(view.getAffiche().equals(test));
     }
 
     @Test
@@ -36,6 +38,7 @@ public class TestIHM {
 
     @Test // Il faudrait vérifier que 'modifiedLabel' est incrémenté plutôt que différant
     public void testClickInc(){
+        view.getInc().doClick();
         String label = view.getAffiche().getText();
         view.getInc().doClick();
         String modifiedLabel = view.getAffiche().getText();
@@ -48,27 +51,33 @@ public class TestIHM {
     }
 
     @Test // Il faudrait vérifier que 'modifiedLabel' est incrémenté plutôt que différant
-    public void testClickDex(){
+    public void testClickDec(){
+        view.getDec().doClick();
         String label = view.getAffiche().getText();
         view.getDec().doClick();
         String modifiedLabel = view.getAffiche().getText();
+        System.out.println("Label = " + label);
+        System.out.println("Modified = "+modifiedLabel);
         assertNotEquals(label, modifiedLabel);
     }
 
-    @Ignore
     @Test
-    public void testGetListeFruit(){
+    public void testGetListeFruits(){
+        assertTrue(view.getListeFruits().getItemAt(0).getName(), "Orange");
     }
 
-    @Ignore
     @Test
     public void testSetListeFruit() {
-
+        String[] fruit = {"Orange"};
+        JComboBox<Fruit> listeFruits = new JComboBox(fruit);
+        view.setListeFruits(listeFruits);
+        assertTrue(view.getListeFruits().equals(listeFruits));
     }
 
-    @Ignore
     @Test
     public void ajouteFruit() {
-        
+        Orange o = new Orange();
+        view.ajouteFruit(o);
+        assertEquals(view.getListeFruits().getItemAt(5), o);
     }
 }
