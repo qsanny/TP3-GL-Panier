@@ -22,8 +22,8 @@ public class PanierTest {
         o2 = new Orange(0.5, "France");
         o3 = new Orange(0.5, "USA");
 
-        p2plein.ajout(o1);
-        p2plein.ajout(o1);
+        //p2plein.ajout(o1);
+        //p2plein.ajout(o1);
         mock1 = mock(Fruit.class);
         mock2 = mock(Fruit.class);
 
@@ -37,8 +37,8 @@ public class PanierTest {
     public void testGetPrixMock() throws PanierPleinException, PanierVideException {
         System.out.println("GetPrixMock");
         Panier panier = new Panier(3);
-        panier.ajout(mock1);
-        panier.ajout(mock2);
+        //panier.ajout(mock1);
+        //panier.ajout(mock2);
         double res = panier.getPrix();
 
         //test d'intersection
@@ -55,8 +55,8 @@ public class PanierTest {
     @Test
     public void testBoycotteOrigineMock() throws PanierPleinException {
         Panier p = new Panier(3);
-        p.ajout(mock1);
-        p.ajout(mock2);
+        //p.ajout(mock1);
+        //p.ajout(mock2);
 
         assertEquals(2, p.getTaillePanier());
         p.boycotteOrigine("France");
@@ -67,8 +67,8 @@ public class PanierTest {
     public void testGetPrixIntegration() throws PanierPleinException, PanierVideException {
         System.out.println("GetPrixIntegration");
         Panier panier = new Panier(3);
-        panier.ajout(o1);
-        panier.ajout(o2);
+        //panier.ajout(o1);
+        //panier.ajout(o2);
         double res = panier.getPrix();
 
         //test d'intersection
@@ -81,9 +81,9 @@ public class PanierTest {
     @Test
     public void testBoycotteOrigineIntegration() throws PanierPleinException {
         Panier p = new Panier(3);
-        p.ajout(o1);
-        p.ajout(o2);
-        p.ajout(o3);
+        //p.ajout(o1);
+        //p.ajout(o2);
+        //p.ajout(o3);
 
         assertEquals(3, p.getTaillePanier());
         p.boycotteOrigine("France");
