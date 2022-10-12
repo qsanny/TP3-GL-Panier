@@ -1,11 +1,18 @@
 package fr.ufrsciencestech.panier.view;
 
-//import fr.ufrsciencestech.panier.controler.Controleur;
+import fr.ufrsciencestech.panier.model.Fruit;
 import fr.ufrsciencestech.panier.view.VueGraphiqueListe;
 
 import org.junit.Test;
 import org.junit.Before;
+import org.junit.Ignore;
 
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.mockito.Mockito.*;
+
+import javax.swing.*;
 
 public class TestIHM {
     VueGraphiqueListe view;
@@ -15,59 +22,53 @@ public class TestIHM {
         view = new VueGraphiqueListe();
     }
 
-    /*
     @Test
-    public void update(){
-        view.update()
+    public void testGetAndSetAffiche() {
+        JLabel test = new JLabel("Test");
+        view.setAffiche(test);
+        assertTrue(view.getAffiche().equals(test));
     }
 
     @Test
-    public void testAjoutControleur(ControleurSimple c){
+    public void testGetInc() {
+        assertTrue(view.getInc().getText().equals("+"));
+    }
+
+    @Test // Il faudrait vérifier que 'modifiedLabel' est incrémenté plutôt que différant
+    public void testClickInc(){
+        String label = view.getAffiche().getText();
+        view.getInc().doClick();
+        String modifiedLabel = view.getAffiche().getText();
+        assertNotEquals(label, modifiedLabel);
     }
 
     @Test
-    public void testGetInc(){
-        view.getInc();
-        assertEquals(view.getAffiche(), 1);
+    public void testGetDec() {
+        assertTrue(view.getDec().getText().equals("-"));
     }
 
-    @Test
-    public void testGetDec0(){
-        view.getDec();
-        asserEquals(view.getAffiche(), 0); // Impossible de décrémenter à partir de 0
+    @Test // Il faudrait vérifier que 'modifiedLabel' est incrémenté plutôt que différant
+    public void testClickDex(){
+        String label = view.getAffiche().getText();
+        view.getDec().doClick();
+        String modifiedLabel = view.getAffiche().getText();
+        assertNotEquals(label, modifiedLabel);
     }
 
-    @Test
-    public void testGetDec1(){
-        view.getInc();
-        view.getDec();
-        asserEquals(view.getAffiche(), 0);
-    }
-
-    @Test
-    public void testGetAffiche(){
-        view.setAffiche() = "Test";
-        assertEquals(view.getAffiche(), "Test");
-    }
-
-    @Test
-    public void testSetAffiche(){
-
-    }
-
+    @Ignore
     @Test
     public void testGetListeFruit(){
-
     }
 
+    @Ignore
     @Test
-    public void testSetListeFruit(){
+    public void testSetListeFruit() {
 
     }
 
+    @Ignore
     @Test
-    public void ajouteFruit(){
-        view.ajouteFruit(newOrangjavae);
+    public void ajouteFruit() {
+        
     }
-    */
 }

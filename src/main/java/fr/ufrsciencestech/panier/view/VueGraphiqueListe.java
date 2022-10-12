@@ -59,7 +59,7 @@ public class VueGraphiqueListe extends JFrame implements VueG {
         getDec().addActionListener(c);
         getListeFruits().addActionListener(c);
     }
-    
+   
     @Override
     public void update(Observable m, Object fruitsInfo){     //This method is called whenever the observed object is changed
         getAffiche().setText(((String) fruitsInfo));
