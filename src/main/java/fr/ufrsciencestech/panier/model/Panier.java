@@ -64,12 +64,18 @@ public class Panier extends Observable {
             prixTotal += f.getPrix();
         }
         resultat += ": "+ prixTotal + " euros\n";
-        String[] typesFruitDisponible = {"Orange", "Cerise", "Banane", "Macedoine", "Jus"};// TODO: Enlever Macedoine et Jus si pas le temps
-        for (String typeFruit : typesFruitDisponible) {
-
+        FruitSimple[] typesFruitDisponible = {new Orange(), new Banane(), new Cerise()};// TODO: Ajouter Macedoine et Jus
+        for (FruitSimple typeFruit : typesFruitDisponible) {
+            int nbFruits = 0;
+            for (FruitSimple f : getFruits()) {
+                if (f.getName() == typeFruit.getName()) {
+                    nbFruits++;
+                }
+            }
+            resultat += nbFruits + " " + typeFruit.getName() + " à " + typeFruit.getPrix() + " euros \n";
         }
-        Orange o  = new Orange();
-        resultat += getTaillePanier() + " Orange a " + o.getPrix() + " euros\n";
+        //Orange o  = new Orange();
+        //resultat += getTaillePanier() + " Orange a " + o.getPrix() + " euros\n";
         // for (int i = 0; i < this.getFruits().size(); i++)
         // {
         //     Fruit f = this.getFruit(i);
