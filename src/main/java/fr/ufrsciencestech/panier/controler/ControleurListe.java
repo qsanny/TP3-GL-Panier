@@ -7,6 +7,7 @@ package fr.ufrsciencestech.panier.controler;
 
 import fr.ufrsciencestech.panier.model.Panier;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
@@ -16,16 +17,19 @@ import java.awt.event.ActionEvent;
  */
 public class ControleurListe extends Controleur {
     private Panier p;
+    private String choix = "Orange";
     
     @Override
     public void actionPerformed(ActionEvent e){   //Invoked when an action occurs
         switch(((Component)e.getSource()).getName()) {
-            // Incrémenter un fruit en particulier ?
             case "Plus" :
-                p.update(1);
+                p.update(1, choix);
                 break;
             case "Moins" :
-                p.update(-1);
+                p.update(-1, choix);
+                break;
+            case "Choix" :
+                choix = ((JComboBox)e.getSource()).getSelectedItem().toString();
                 break;
         }
     }
