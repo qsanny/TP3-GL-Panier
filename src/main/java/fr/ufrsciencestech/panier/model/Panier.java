@@ -8,7 +8,7 @@ import java.util.*;
  * @author roudet
  */
 public class Panier extends Observable {
-    private ArrayList<FruitSimple> fruits;  //attribut pour stocker les fruits
+    private ArrayList<Fruit> fruits;  //attribut pour stocker les fruits
     private int contenanceMax;        //nb maximum d'oranges que peut contenir le panier
 
     public void update(int incr, String choix) {
@@ -26,10 +26,10 @@ public class Panier extends Observable {
                     case "Banane":
                         ajout(new Banane());
                         break;
-                /*
                 case "Macedoine" :
                     ajout(new Macedoine());
                     break;
+                /*
                 case "Jus" :
                     ajout(new Jus());
                     break;
@@ -52,7 +52,7 @@ public class Panier extends Observable {
     public Panier(int contenanceMax){  //initialise un panier vide ayant une certaine contenance maximale (precisee en parametre)
 
         this.contenanceMax = contenanceMax;
-        this.fruits = new ArrayList<FruitSimple>();
+        this.fruits = new ArrayList<Fruit>();
     }
 
     @Override
@@ -60,20 +60,31 @@ public class Panier extends Observable {
         String resultat ="";
         resultat = "Panier de " + getTaillePanier() + " fruits ";
         double prixTotal = 0;
-        for (FruitSimple f : getFruits()) {
+        for (Fruit f : getFruits()) {
             prixTotal += f.getPrix();
         }
         resultat += ": "+ prixTotal + " euros\n";
-        FruitSimple[] typesFruitDisponible = {new Orange(), new Banane(), new Cerise()};// TODO: Ajouter Macedoine et Jus
+        //Orange + Cerise + Banane
+        FruitSimple[] typesFruitDisponible = {new Orange(), new Cerise(), new Banane()};// TODO: Ajouter Macedoine et Jus
         for (FruitSimple typeFruit : typesFruitDisponible) {
             int nbFruits = 0;
-            for (FruitSimple f : getFruits()) {
+            for (Fruit f : getFruits()) {
                 if (f.getName() == typeFruit.getName()) {
                     nbFruits++;
                 }
             }
             resultat += nbFruits + " " + typeFruit.getName() + " à " + typeFruit.getPrix() + " euros \n";
         }
+        //Macedoine
+        int nbMacedoine = 0;
+        double prixMacedoine = 0;
+        for (Fruit f : getFruits()) {
+            if (f.getName() == "Macedoine") {
+                nbMacedoine++;
+                prixMacedoine += f.getPrix();
+            }
+        }
+        resultat += nbMacedoine + " Macedoine : " + prixMacedoine + " euros au total\n";
         //Orange o  = new Orange();
         //resultat += getTaillePanier() + " Orange a " + o.getPrix() + " euros\n";
         // for (int i = 0; i < this.getFruits().size(); i++)
@@ -88,11 +99,11 @@ public class Panier extends Observable {
     }
 
     //groupe 2
-    public ArrayList<FruitSimple> getFruits() {  //accesseur du premier attribut
+    public ArrayList<Fruit> getFruits() {  //accesseur du premier attribut
        return this.fruits;
     }
 
-    public void setFruits(ArrayList<FruitSimple> fruits) { //modificateur du premier attribut
+    public void setFruits(ArrayList<Fruit> fruits) { //modificateur du premier attribut
       this.fruits = fruits;
     }
 
@@ -105,7 +116,7 @@ public class Panier extends Observable {
     }
 
     //groupe 3
-    public FruitSimple getFruit(int i){  //accesseur retournant le fruit contenu dans le panier a l'emplacement n°i ou null s'il n'y a rien a cet emplacement
+    public Fruit getFruit(int i){  //accesseur retournant le fruit contenu dans le panier a l'emplacement n°i ou null s'il n'y a rien a cet emplacement
 	    if(i<0 || i>=fruits.size())
         {
             return null;
@@ -132,7 +143,7 @@ public class Panier extends Observable {
     }
 
     //groupe 4
-    public void ajout(FruitSimple o) {  //ajoute le fruit o a la fin du panier si celui-ci n'est pas plein
+    public void ajout(Fruit o) {  //ajoute le fruit o a la fin du panier si celui-ci n'est pas plein
 
       if(!estPlein())
        fruits.add(o);
@@ -167,7 +178,7 @@ public class Panier extends Observable {
     public void boycotteOrigine(String origine) {  //supprime du panier tous les fruits provenant du pays origine
 
         for (int i = 0; i <= fruits.size() - 1; i++) {
-            if (fruits.get(i).Origine.equals(origine)) {
+            if (fruits.get(i).getOrigine().equals(origine)) {
                 fruits.remove(i);
             }
 

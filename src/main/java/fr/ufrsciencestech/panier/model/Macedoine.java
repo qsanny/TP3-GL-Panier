@@ -1,6 +1,7 @@
+package fr.ufrsciencestech.panier.model;
 
-  import java.util.*;
-public class Macedoine {
+import java.util.*;
+public class Macedoine implements Fruit {
         private ArrayList<Fruit> fruits;
           public boolean Seedless;
 
@@ -23,7 +24,17 @@ public class Macedoine {
 
           }
 
-          public double getPrix(){
+  @Override
+  public String getName() {
+    return "Macedoine";
+  }
+
+  @Override
+  public boolean isSeedless() {
+    return this.Seedless;
+  }
+
+  public double getPrix(){
             double n=0;
             for (int i=0;i<=fruits.size()-1;i++){
               n= n+fruits.get(i).getPrix();
@@ -31,7 +42,12 @@ public class Macedoine {
             return n;
           }
 
-          public static void main (String[] args) {
+  @Override
+  public String getOrigine() {
+    return null;
+  }
+
+  public static void main (String[] args) {
 
             Macedoine n = new Macedoine();
             FruitSimple t= new Banane(55,"gg");
