@@ -27,7 +27,7 @@ public class VueGraphiqueListe extends JFrame implements VueG {
     private JTextArea affiche;
     
     public VueGraphiqueListe(){
-        super ("CompteurSwing");
+        super ("Panier");
         inc = new JButton("+");
         dec = new JButton("-");
         

@@ -29,11 +29,9 @@ public class Panier extends Observable {
                 case "Macedoine" :
                     ajout(new Macedoine());
                     break;
-                /*
                 case "Jus" :
-                    ajout(new Jus());
+                    ajout(new Jus(new Orange()));
                     break;
-                */
                 }
             }
         }
@@ -85,6 +83,16 @@ public class Panier extends Observable {
             }
         }
         resultat += nbMacedoine + " Macedoine : " + prixMacedoine + " euros au total\n";
+        //Jus
+        int nbJus = 0;
+        double prixJus = 0;
+        for (Fruit f : getFruits()) {
+            if (f.getName() == "Jus") {
+                nbJus++;
+                prixJus += f.getPrix();
+            }
+        }
+        resultat += nbJus + " Jus : " + prixJus + " euros au total\n";
         //Orange o  = new Orange();
         //resultat += getTaillePanier() + " Orange a " + o.getPrix() + " euros\n";
         // for (int i = 0; i < this.getFruits().size(); i++)
