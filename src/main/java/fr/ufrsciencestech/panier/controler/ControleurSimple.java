@@ -22,9 +22,9 @@ public class ControleurSimple extends Controleur {
     @Override
     public void actionPerformed(ActionEvent e){   //Invoked when an action occurs
         if(((Component)e.getSource()).getName().equals("Plus")) 
-            p.update(1);
+            p.update(1, "Orange");
         else
-            p.update(-1);
+            p.update(-1, "Orange");
     }
     public void setPanier(Panier p){
         this.p = p;

@@ -23,21 +23,20 @@ import javax.swing.*;
 public class VueGraphiqueListe extends JFrame implements VueG {
     private JButton inc;
     private JButton dec;
-    private JComboBox combobox; 
+    private JComboBox listeFruits;
     private JTextArea affiche;
-    private JComboBox<Fruit> listeFruits;
     
     public VueGraphiqueListe(){
         super ("CompteurSwing");
         inc = new JButton("+");
         dec = new JButton("-");
         
-        String typesFruitDisponible[] = { "Orange"};// TODO: il faudra le rendre dynamique
-        combobox = new JComboBox(typesFruitDisponible);
+        String[] typesFruitDisponible = {"Orange", "Cerise", "Banane", "Macedoine", "Jus"};// TODO: Enlever Macedoine et Jus si pas le temps
+        listeFruits = new JComboBox(typesFruitDisponible);
         
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(inc, BorderLayout.WEST);
-        panel.add(combobox, BorderLayout.EAST);
+        panel.add(listeFruits, BorderLayout.EAST);
 
         
         add(panel, BorderLayout.NORTH);
@@ -49,6 +48,7 @@ public class VueGraphiqueListe extends JFrame implements VueG {
         inc.setName("Plus");
         dec.setName("Moins");
         affiche.setName("Affichage");
+        listeFruits.setName("Choix");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,6 +57,7 @@ public class VueGraphiqueListe extends JFrame implements VueG {
     public void addControleur(Controleur c){
         getInc().addActionListener(c);
         getDec().addActionListener(c);
+        getListeFruits().addActionListener(c);
     }
     
     @Override

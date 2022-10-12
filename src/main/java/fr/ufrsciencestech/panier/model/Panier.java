@@ -11,12 +11,31 @@ public class Panier extends Observable {
     private ArrayList<Fruit> fruits;  //attribut pour stocker les fruits
     private int contenanceMax;        //nb maximum d'oranges que peut contenir le panier
 
-    public void update(int incr) {
+    public void update(int incr, String choix) {
         if (incr >= 0) {
             //add
             for (int i = 0; i < incr; i++) {
                 try {
-                    ajout(new Orange());
+                    switch(choix) {
+                        //TODO : décommenter
+                        case "Orange" :
+                            ajout(new Orange());
+                            break;
+                        case "Cerise" :
+                            //ajout(new Cerise());
+                            break;
+                        case "Banane" :
+                            //ajout(new Banane());
+                            break;
+                        /*
+                        case "Macedoine" :
+                            ajout(new Macedoine());
+                            break;
+                        case "Jus" :
+                            ajout(new Jus());
+                            break;
+                        */
+                    }
                 } catch (PanierPleinException e) {
                     break;
                 }
